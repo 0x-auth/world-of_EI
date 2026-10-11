@@ -1,0 +1,10 @@
+state becomes transition
+transition creates error
+error changes the model
+the changed model changes the next transition
+memory is structural bias
+identity survives through transformation
+prediction compares expectation with consequence
+knowledge improves future action
+learning reduces future error
+recovery preserves function after disturbance

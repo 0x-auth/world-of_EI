@@ -1,0 +1,3540 @@
+{
+  "version": 1,
+  "machine": "EI",
+  "head": 0,
+  "program": [
+    {
+      "op": "observe"
+    },
+    {
+      "op": "predict_next"
+    },
+    {
+      "op": "compare"
+    },
+    {
+      "op": "scar_if_wrong"
+    },
+    {
+      "op": "persist"
+    }
+  ],
+  "rules": [],
+  "knowledge": [
+    {
+      "context": "a",
+      "consequence": "self",
+      "evidence": 1
+    },
+    {
+      "context": "a self",
+      "consequence": "is",
+      "evidence": 1
+    },
+    {
+      "context": "a self::is",
+      "consequence": "the rule that",
+      "evidence": 1
+    },
+    {
+      "context": "after",
+      "consequence": "disturbance",
+      "evidence": 1
+    },
+    {
+      "context": "changed",
+      "consequence": "model",
+      "evidence": 2
+    },
+    {
+      "context": "changed model",
+      "consequence": "changes",
+      "evidence": 1
+    },
+    {
+      "context": "changes",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "closing",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "closing the",
+      "consequence": "loop",
+      "evidence": 1
+    },
+    {
+      "context": "compares",
+      "consequence": "expectation",
+      "evidence": 1
+    },
+    {
+      "context": "correction",
+      "consequence": "is",
+      "evidence": 1
+    },
+    {
+      "context": "correction is",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "correction::is",
+      "consequence": "the engine",
+      "evidence": 1
+    },
+    {
+      "context": "creating",
+      "consequence": "is",
+      "evidence": 1
+    },
+    {
+      "context": "creating is",
+      "consequence": "connecting",
+      "evidence": 1
+    },
+    {
+      "context": "creating::is",
+      "consequence": "connecting",
+      "evidence": 1
+    },
+    {
+      "context": "error",
+      "consequence": "changes",
+      "evidence": 2
+    },
+    {
+      "context": "evidence",
+      "consequence": "1",
+      "evidence": 59
+    },
+    {
+      "context": "expectation",
+      "consequence": "with",
+      "evidence": 1
+    },
+    {
+      "context": "function",
+      "consequence": "after",
+      "evidence": 2
+    },
+    {
+      "context": "function after",
+      "consequence": "disturbance",
+      "evidence": 1
+    },
+    {
+      "context": "future",
+      "consequence": "action",
+      "evidence": 1
+    },
+    {
+      "context": "identity",
+      "consequence": "survives",
+      "evidence": 2
+    },
+    {
+      "context": "if_context",
+      "consequence": "changed",
+      "evidence": 3
+    },
+    {
+      "context": "if_context changed",
+      "consequence": "model",
+      "evidence": 2
+    },
+    {
+      "context": "if_context changes",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "if_context compares",
+      "consequence": "expectation",
+      "evidence": 1
+    },
+    {
+      "context": "if_context error",
+      "consequence": "changes",
+      "evidence": 2
+    },
+    {
+      "context": "if_context expectation",
+      "consequence": "with",
+      "evidence": 1
+    },
+    {
+      "context": "if_context function",
+      "consequence": "after",
+      "evidence": 1
+    },
+    {
+      "context": "if_context identity",
+      "consequence": "survives",
+      "evidence": 2
+    },
+    {
+      "context": "if_context improves",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "if_context is",
+      "consequence": "structural",
+      "evidence": 1
+    },
+    {
+      "context": "if_context knowledge",
+      "consequence": "improves",
+      "evidence": 2
+    },
+    {
+      "context": "if_context learning",
+      "consequence": "reduces",
+      "evidence": 2
+    },
+    {
+      "context": "if_context memory",
+      "consequence": "is",
+      "evidence": 2
+    },
+    {
+      "context": "if_context model",
+      "consequence": "changes",
+      "evidence": 1
+    },
+    {
+      "context": "if_context prediction",
+      "consequence": "compares",
+      "evidence": 1
+    },
+    {
+      "context": "if_context preserves",
+      "consequence": "function",
+      "evidence": 1
+    },
+    {
+      "context": "if_context recovery",
+      "consequence": "preserves",
+      "evidence": 2
+    },
+    {
+      "context": "if_context reduces",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "if_context state",
+      "consequence": "becomes",
+      "evidence": 2
+    },
+    {
+      "context": "if_context survives",
+      "consequence": "through",
+      "evidence": 1
+    },
+    {
+      "context": "if_context the",
+      "consequence": "changed",
+      "evidence": 1
+    },
+    {
+      "context": "if_context transition",
+      "consequence": "creates",
+      "evidence": 2
+    },
+    {
+      "context": "if_context::changes",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "if_context::improves",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "if_context::is",
+      "consequence": "structural",
+      "evidence": 1
+    },
+    {
+      "context": "if_context::preserves",
+      "consequence": "function",
+      "evidence": 1
+    },
+    {
+      "context": "if_context::reduces",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "if_context::survives",
+      "consequence": "through",
+      "evidence": 1
+    },
+    {
+      "context": "improves",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "is",
+      "consequence": "the",
+      "evidence": 2
+    },
+    {
+      "context": "is reconstruction",
+      "consequence": "not",
+      "evidence": 1
+    },
+    {
+      "context": "is the",
+      "consequence": "engine",
+      "evidence": 1
+    },
+    {
+      "context": "keeps",
+      "consequence": "closing",
+      "evidence": 1
+    },
+    {
+      "context": "keeps closing",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "knowledge",
+      "consequence": "improves",
+      "evidence": 2
+    },
+    {
+      "context": "language",
+      "consequence": "ei-safe-dsl-v1",
+      "evidence": 1
+    },
+    {
+      "context": "learning",
+      "consequence": "reduces",
+      "evidence": 2
+    },
+    {
+      "context": "memory",
+      "consequence": "is",
+      "evidence": 3
+    },
+    {
+      "context": "memory is",
+      "consequence": "reconstruction",
+      "evidence": 1
+    },
+    {
+      "context": "memory::is",
+      "consequence": "reconstruction not retrieval",
+      "evidence": 1
+    },
+    {
+      "context": "model",
+      "consequence": "changes",
+      "evidence": 2
+    },
+    {
+      "context": "name",
+      "consequence": "transition_reasoner",
+      "evidence": 1
+    },
+    {
+      "context": "next",
+      "consequence": "transition",
+      "evidence": 1
+    },
+    {
+      "context": "not",
+      "consequence": "retrieval",
+      "evidence": 1
+    },
+    {
+      "context": "operation",
+      "consequence": "predict_next",
+      "evidence": 60
+    },
+    {
+      "context": "persists",
+      "consequence": "while",
+      "evidence": 1
+    },
+    {
+      "context": "persists while",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "predict",
+      "consequence": "future",
+      "evidence": 6
+    },
+    {
+      "context": "predict function",
+      "consequence": "after",
+      "evidence": 1
+    },
+    {
+      "context": "predict future",
+      "consequence": "action",
+      "evidence": 1
+    },
+    {
+      "context": "predict structural",
+      "consequence": "bias",
+      "evidence": 1
+    },
+    {
+      "context": "predict the",
+      "consequence": "next",
+      "evidence": 1
+    },
+    {
+      "context": "predict through",
+      "consequence": "transformation",
+      "evidence": 1
+    },
+    {
+      "context": "prediction",
+      "consequence": "compares",
+      "evidence": 1
+    },
+    {
+      "context": "preserves",
+      "consequence": "function",
+      "evidence": 1
+    },
+    {
+      "context": "reconstruction",
+      "consequence": "not",
+      "evidence": 1
+    },
+    {
+      "context": "reconstruction not",
+      "consequence": "retrieval",
+      "evidence": 1
+    },
+    {
+      "context": "recovery",
+      "consequence": "preserves",
+      "evidence": 2
+    },
+    {
+      "context": "reduces",
+      "consequence": "future",
+      "evidence": 1
+    },
+    {
+      "context": "rule",
+      "consequence": "that",
+      "evidence": 1
+    },
+    {
+      "context": "rule persists",
+      "consequence": "while",
+      "evidence": 1
+    },
+    {
+      "context": "rule that",
+      "consequence": "keeps",
+      "evidence": 1
+    },
+    {
+      "context": "self",
+      "consequence": "is",
+      "evidence": 1
+    },
+    {
+      "context": "self is",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "state",
+      "consequence": "becomes",
+      "evidence": 2
+    },
+    {
+      "context": "states",
+      "consequence": "change",
+      "evidence": 1
+    },
+    {
+      "context": "structural",
+      "consequence": "bias",
+      "evidence": 1
+    },
+    {
+      "context": "survives",
+      "consequence": "through",
+      "evidence": 1
+    },
+    {
+      "context": "that",
+      "consequence": "keeps",
+      "evidence": 1
+    },
+    {
+      "context": "that keeps",
+      "consequence": "closing",
+      "evidence": 1
+    },
+    {
+      "context": "the",
+      "consequence": "next",
+      "evidence": 2
+    },
+    {
+      "context": "the next",
+      "consequence": "transition",
+      "evidence": 1
+    },
+    {
+      "context": "the rule",
+      "consequence": "that",
+      "evidence": 1
+    },
+    {
+      "context": "the states",
+      "consequence": "change",
+      "evidence": 1
+    },
+    {
+      "context": "through",
+      "consequence": "transformation",
+      "evidence": 1
+    },
+    {
+      "context": "transition",
+      "consequence": "creates",
+      "evidence": 2
+    },
+    {
+      "context": "while",
+      "consequence": "the",
+      "evidence": 1
+    },
+    {
+      "context": "while the",
+      "consequence": "states",
+      "evidence": 1
+    }
+  ],
+  "scars": [
+    {
+      "context": "intelligence",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "intelligence is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory is",
+      "predicted": null,
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error is",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": "expectation",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": "transition",
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation between",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between state",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "system",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "intelligence",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "intelligence is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory is",
+      "predicted": null,
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error is",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": "expectation",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": "transition",
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation between",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between state",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "system",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "intelligence",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "intelligence is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a state",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state transition",
+      "predicted": null,
+      "observed": "process",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory is",
+      "predicted": null,
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is reconstruction",
+      "predicted": null,
+      "observed": "from",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction from",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "from structural",
+      "predicted": null,
+      "observed": "traces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction creates",
+      "predicted": null,
+      "observed": "an",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates an",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": "a",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error is",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is the",
+      "predicted": null,
+      "observed": "difference",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the difference",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "difference between",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between expectation",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning changes",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes future",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between",
+      "predicted": "expectation",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": "transition",
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge is",
+      "predicted": null,
+      "observed": "a",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is a",
+      "predicted": "state",
+      "observed": "usable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a usable",
+      "predicted": null,
+      "observed": "relation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "usable relation",
+      "predicted": null,
+      "observed": "between",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "relation between",
+      "predicted": null,
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "between state",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state action",
+      "predicted": null,
+      "observed": "and",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "action and",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a",
+      "predicted": "state",
+      "observed": "system",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a system",
+      "predicted": null,
+      "observed": "must",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "system must",
+      "predicted": null,
+      "observed": "remain",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "must remain",
+      "predicted": null,
+      "observed": "viable",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "remain viable",
+      "predicted": null,
+      "observed": "while",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "viable while",
+      "predicted": null,
+      "observed": "being",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "while being",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "being changed",
+      "predicted": null,
+      "observed": "by",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed by",
+      "predicted": null,
+      "observed": "reality",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": null,
+      "observed": "becomes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "becomes",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state becomes",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creates",
+      "predicted": null,
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition creates",
+      "predicted": null,
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error changes",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes the",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "model",
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "model",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "model",
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "next",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the changed",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed model",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "model changes",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes the",
+      "predicted": "model",
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the next",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "structural",
+      "predicted": null,
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory is",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is structural",
+      "predicted": null,
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "identity",
+      "predicted": null,
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "survives",
+      "predicted": null,
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "through",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "identity survives",
+      "predicted": null,
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "survives through",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction",
+      "predicted": null,
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "compares",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation",
+      "predicted": null,
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "with",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction compares",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "compares expectation",
+      "predicted": null,
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation with",
+      "predicted": null,
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge",
+      "predicted": null,
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "improves",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge improves",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "improves future",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning",
+      "predicted": null,
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reduces",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": "action",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning reduces",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reduces future",
+      "predicted": null,
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "recovery",
+      "predicted": null,
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "preserves",
+      "predicted": null,
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "function",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "after",
+      "predicted": null,
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "recovery preserves",
+      "predicted": null,
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "preserves function",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "function after",
+      "predicted": null,
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "name",
+      "predicted": null,
+      "observed": "transition_reasoner",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "language",
+      "predicted": null,
+      "observed": "ei-safe-dsl-v1",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": null,
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "evidence",
+      "predicted": null,
+      "observed": "1",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "operation",
+      "predicted": null,
+      "observed": "predict_next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "after",
+      "observed": "becomes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "disturbance",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "after",
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "disturbance",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "after",
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context changed",
+      "predicted": null,
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "disturbance",
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "model",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changed model",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "disturbance",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": null,
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "next",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict the",
+      "predicted": null,
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the next",
+      "predicted": null,
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "disturbance",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "evidence",
+      "predicted": "1",
+      "observed": "2",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "changes",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context changes",
+      "predicted": null,
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "model",
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "compares",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context compares",
+      "predicted": null,
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "model",
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "model",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "model",
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "error",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context error",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "model",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict the",
+      "predicted": "next",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "expectation",
+      "predicted": null,
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context expectation",
+      "predicted": null,
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "function",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context function",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "identity",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "identity",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "identity",
+      "predicted": null,
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context identity",
+      "predicted": null,
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "identity",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "through",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict through",
+      "predicted": null,
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "improves",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context improves",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "is",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context is",
+      "predicted": null,
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "knowledge",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "knowledge",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "knowledge",
+      "predicted": null,
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context knowledge",
+      "predicted": null,
+      "observed": "improves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "knowledge",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict future",
+      "predicted": null,
+      "observed": "action",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "learning",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "learning",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "learning",
+      "predicted": null,
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context learning",
+      "predicted": null,
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "learning",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "future",
+      "predicted": "action",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict future",
+      "predicted": "action",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "memory",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "memory",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context memory",
+      "predicted": null,
+      "observed": "is",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "memory",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "structural",
+      "predicted": null,
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict structural",
+      "predicted": null,
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context model",
+      "predicted": null,
+      "observed": "changes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "prediction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "prediction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "prediction",
+      "predicted": null,
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context prediction",
+      "predicted": null,
+      "observed": "compares",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "expectation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "preserves",
+      "predicted": null,
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context preserves",
+      "predicted": null,
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "recovery",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "recovery",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "recovery",
+      "predicted": null,
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context recovery",
+      "predicted": null,
+      "observed": "preserves",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "recovery",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "function",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "after",
+      "predicted": null,
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict function",
+      "predicted": null,
+      "observed": "after",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "function after",
+      "predicted": null,
+      "observed": "disturbance",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "the",
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "reduces",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reduces",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context reduces",
+      "predicted": null,
+      "observed": "future",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "becomes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "state",
+      "predicted": null,
+      "observed": "becomes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context state",
+      "predicted": null,
+      "observed": "becomes",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "state",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "structural",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "bias",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "survives",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "survives",
+      "predicted": null,
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context survives",
+      "predicted": null,
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context the",
+      "predicted": null,
+      "observed": "changed",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "model",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context the",
+      "predicted": "changed",
+      "observed": "next",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "through",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "transformation",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "transition",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context transition",
+      "predicted": null,
+      "observed": "creates",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "transition",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "error",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "if_context",
+      "predicted": "changed",
+      "observed": "with",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "predict",
+      "predicted": "future",
+      "observed": "consequence",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creating",
+      "predicted": null,
+      "observed": "is",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is",
+      "predicted": "structural",
+      "observed": "connecting",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "creating is",
+      "predicted": null,
+      "observed": "connecting",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "correction",
+      "predicted": null,
+      "observed": "is",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is",
+      "predicted": "structural",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "engine",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "correction is",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is the",
+      "predicted": null,
+      "observed": "engine",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is",
+      "predicted": "structural",
+      "observed": "reconstruction",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "reconstruction",
+      "predicted": null,
+      "observed": "not",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "not",
+      "predicted": null,
+      "observed": "retrieval",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "memory is",
+      "predicted": null,
+      "observed": "reconstruction",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is reconstruction",
+      "predicted": null,
+      "observed": "not",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "reconstruction not",
+      "predicted": null,
+      "observed": "retrieval",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "a",
+      "predicted": null,
+      "observed": "self",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "self",
+      "predicted": null,
+      "observed": "is",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is",
+      "predicted": "structural",
+      "observed": "the",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "rule",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "rule",
+      "predicted": null,
+      "observed": "that",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "that",
+      "predicted": null,
+      "observed": "keeps",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "keeps",
+      "predicted": null,
+      "observed": "closing",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "closing",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "loop",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "a self",
+      "predicted": null,
+      "observed": "is",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "self is",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "is the",
+      "predicted": "engine",
+      "observed": "rule",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "the rule",
+      "predicted": null,
+      "observed": "that",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "rule that",
+      "predicted": null,
+      "observed": "keeps",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "that keeps",
+      "predicted": null,
+      "observed": "closing",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "keeps closing",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "closing the",
+      "predicted": null,
+      "observed": "loop",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "rule",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "rule",
+      "predicted": "that",
+      "observed": "persists",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "persists",
+      "predicted": null,
+      "observed": "while",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "while",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "the",
+      "predicted": "next",
+      "observed": "states",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "states",
+      "predicted": null,
+      "observed": "change",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "the rule",
+      "predicted": "that",
+      "observed": "persists",
+      "kind": "prediction_mismatch"
+    },
+    {
+      "context": "rule persists",
+      "predicted": null,
+      "observed": "while",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "persists while",
+      "predicted": null,
+      "observed": "the",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "while the",
+      "predicted": null,
+      "observed": "states",
+      "kind": "first_encounter"
+    },
+    {
+      "context": "the states",
+      "predicted": null,
+      "observed": "change",
+      "kind": "first_encounter"
+    }
+  ],
+  "metrics": {
+    "observations": 43,
+    "unknowns": 30,
+    "errors": 12,
+    "correct": 1,
+    "knowledge_relations": 101,
+    "scar_count": 500
+  }
+}

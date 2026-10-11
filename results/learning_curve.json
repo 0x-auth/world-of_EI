@@ -1,0 +1,56 @@
+{
+  "genesis": {
+    "held_out": {
+      "relations": 28,
+      "correct": 0,
+      "unknown": 23,
+      "accuracy": 0.0,
+      "error": 1.0
+    },
+    "transfer": {
+      "relations": 43,
+      "correct": 1,
+      "unknown": 33,
+      "accuracy": 0.023255813953488372,
+      "error": 0.9767441860465116
+    }
+  },
+  "after_learning": {
+    "held_out": {
+      "relations": 28,
+      "correct": 0,
+      "unknown": 22,
+      "accuracy": 0.0,
+      "error": 1.0
+    },
+    "transfer": {
+      "relations": 43,
+      "correct": 11,
+      "unknown": 22,
+      "accuracy": 0.2558139534883721,
+      "error": 0.7441860465116279
+    }
+  },
+  "after_relearning": {
+    "transfer": {
+      "relations": 43,
+      "correct": 33,
+      "unknown": 0,
+      "accuracy": 0.7674418604651163,
+      "error": 0.2325581395348837
+    }
+  },
+  "training": {
+    "lines": 3,
+    "relations": 15,
+    "conceptual_relations": 3,
+    "knowledge_relations": 80,
+    "scars": 472
+  },
+  "files": {
+    "world": "/Users/space/play/ei-world/input/philosophy.md",
+    "transfer": "/Users/space/play/ei-world/input/philosophy.md",
+    "tape": "/Users/space/play/ei-world/tape/self.json",
+    "program": "/Users/space/play/ei-world/programs/transition_reasoner.json"
+  }
+}

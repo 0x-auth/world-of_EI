@@ -1,0 +1,619 @@
+{
+  "name": "transition_reasoner",
+  "language": "EI-safe-dsl-v1",
+  "operations": [
+    "observe",
+    "predict_next",
+    "compare",
+    "scar_if_wrong",
+    "persist"
+  ],
+  "rules": [
+    {
+      "if_context": "a",
+      "predict": "self",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "a self",
+      "predict": "is",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "a self::is",
+      "predict": "the rule that",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "after",
+      "predict": "disturbance",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "changed",
+      "predict": "model",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "changed model",
+      "predict": "changes",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "changes",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "closing",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "closing the",
+      "predict": "loop",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "compares",
+      "predict": "expectation",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "correction",
+      "predict": "is",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "correction is",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "correction::is",
+      "predict": "the engine",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "creating",
+      "predict": "is",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "creating is",
+      "predict": "connecting",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "creating::is",
+      "predict": "connecting",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "error",
+      "predict": "changes",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "evidence",
+      "predict": "1",
+      "evidence": 59,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "expectation",
+      "predict": "with",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "function",
+      "predict": "after",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "function after",
+      "predict": "disturbance",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "future",
+      "predict": "action",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "identity",
+      "predict": "survives",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context",
+      "predict": "changed",
+      "evidence": 3,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context changed",
+      "predict": "model",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context changes",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context compares",
+      "predict": "expectation",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context error",
+      "predict": "changes",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context expectation",
+      "predict": "with",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context function",
+      "predict": "after",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context identity",
+      "predict": "survives",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context improves",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context is",
+      "predict": "structural",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context knowledge",
+      "predict": "improves",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context learning",
+      "predict": "reduces",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context memory",
+      "predict": "is",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context model",
+      "predict": "changes",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context prediction",
+      "predict": "compares",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context preserves",
+      "predict": "function",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context recovery",
+      "predict": "preserves",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context reduces",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context state",
+      "predict": "becomes",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context survives",
+      "predict": "through",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context the",
+      "predict": "changed",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context transition",
+      "predict": "creates",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::changes",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::improves",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::is",
+      "predict": "structural",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::preserves",
+      "predict": "function",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::reduces",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "if_context::survives",
+      "predict": "through",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "improves",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "is",
+      "predict": "the",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "is reconstruction",
+      "predict": "not",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "is the",
+      "predict": "engine",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "keeps",
+      "predict": "closing",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "keeps closing",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "knowledge",
+      "predict": "improves",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "language",
+      "predict": "ei-safe-dsl-v1",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "learning",
+      "predict": "reduces",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "memory",
+      "predict": "is",
+      "evidence": 3,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "memory is",
+      "predict": "reconstruction",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "memory::is",
+      "predict": "reconstruction not retrieval",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "model",
+      "predict": "changes",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "name",
+      "predict": "transition_reasoner",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "next",
+      "predict": "transition",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "not",
+      "predict": "retrieval",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "operation",
+      "predict": "predict_next",
+      "evidence": 60,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "persists",
+      "predict": "while",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "persists while",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict",
+      "predict": "future",
+      "evidence": 6,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict function",
+      "predict": "after",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict future",
+      "predict": "action",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict structural",
+      "predict": "bias",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict the",
+      "predict": "next",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "predict through",
+      "predict": "transformation",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "prediction",
+      "predict": "compares",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "preserves",
+      "predict": "function",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "reconstruction",
+      "predict": "not",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "reconstruction not",
+      "predict": "retrieval",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "recovery",
+      "predict": "preserves",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "reduces",
+      "predict": "future",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "rule",
+      "predict": "that",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "rule persists",
+      "predict": "while",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "rule that",
+      "predict": "keeps",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "self",
+      "predict": "is",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "self is",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "state",
+      "predict": "becomes",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "states",
+      "predict": "change",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "structural",
+      "predict": "bias",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "survives",
+      "predict": "through",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "that",
+      "predict": "keeps",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "that keeps",
+      "predict": "closing",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "the",
+      "predict": "next",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "the next",
+      "predict": "transition",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "the rule",
+      "predict": "that",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "the states",
+      "predict": "change",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "through",
+      "predict": "transformation",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "transition",
+      "predict": "creates",
+      "evidence": 2,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "while",
+      "predict": "the",
+      "evidence": 1,
+      "operation": "predict_next"
+    },
+    {
+      "if_context": "while the",
+      "predict": "states",
+      "evidence": 1,
+      "operation": "predict_next"
+    }
+  ]
+}
