@@ -1,0 +1,12 @@
+{
+  "conversation_id": "b2-bio",
+  "created_at": "2025-07-14T18:00:00Z",
+  "turns": [
+    {"role":"user","ts":"2025-07-14T18:00:00Z","text":"how does a group of cells decide to become an organ when no single cell is in charge"},
+    {"role":"assistant","ts":"2025-07-14T18:00:11Z","text":"through local signaling constraints between neighbors; each cell follows simple rules and the tissue relaxes into a stable differentiated pattern, one fate chosen out of many possible"},
+    {"role":"user","ts":"2025-07-14T18:02:00Z","text":"so the body plan is in the signaling not in any individual cell"},
+    {"role":"assistant","ts":"2025-07-14T18:02:14Z","text":"exactly, the pattern is a property of the coupling between cells. isolate a cell and the pattern is gone. the organ is emergent, not located in any single cell"},
+    {"role":"user","ts":"2025-07-14T18:04:00Z","text":"what makes a stem cell suddenly commit to one lineage"},
+    {"role":"assistant","ts":"2025-07-14T18:04:12Z","text":"a signal crosses a threshold and the cell switches into a new stable gene-expression state, a new attractor. below threshold it stays plastic and absorbs the fluctuation"}
+  ]
+}
