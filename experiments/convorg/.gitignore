@@ -1,0 +1,4 @@
+# conversations and learned memory never go in the repo
+*.tsv
+*.npz
+*.json
