@@ -187,15 +187,21 @@ def cmd_eval(a, rows):
         rc = np.full(V, 0.1)
         for q in recent: rc[q] += 1
         for name, q in (("organism", p), ("all-time words", uni / uni.sum()), ("their last 60", rc / rc.sum())):
-            res[(rows[i][2] or "all", name)].append((float(-np.log2(np.maximum(q[ids], 1e-12)).mean()),
-                                                      len(set(np.argsort(-q)[:20]) & set(ids)) / len(ids)))
+            v = (float(-np.log2(np.maximum(q[ids], 1e-12)).mean()), len(set(np.argsort(-q)[:20]) & set(ids)) / len(ids))
+            res[("all", name)].append(v)                       # one organism, one score
+            if rows[i][2]: res[(rows[i][2], name)].append(v)  # the same predictions, split by channel for reading
     def onp2(i, ids, p, ctx):
         onp(i, ids, p, ctx); uni[ids] += 1
         if rows[i][1] == "them": recent.append(ids)
     live(br, rows, k, None, onp2)
     print(f"predicting the other person's messages from {a.__dict__['from']} on (learning as it goes, vocabulary frozen at the cut)")
-    for src in sorted({s for s, _ in res}):
-        line = [f"{src or 'all':>6}:"]
+    if not res: print("  no messages from the other person after that date"); return
+    label = {"all": "all", "g": "email", "w": "chat"}
+    chans = sorted({s for s, _ in res} - {"all"})
+    order = ["all"] + (chans if len(chans) > 1 else [])
+    for src in order:
+        if len(order) > 1 and src == order[1]: print("  the same predictions, split by channel:")
+        line = [f"{label.get(src, src):>6}:"]
         for name in ("organism", "all-time words", "their last 60"):
             r = np.array(res[(src, name)]); line.append(f"{name} {r[:,0].mean():.2f} bits, top-20 {r[:,1].mean():.0%}")
         print(f"  n={len(res[(src,'organism')]):5} " + " | ".join(line))
