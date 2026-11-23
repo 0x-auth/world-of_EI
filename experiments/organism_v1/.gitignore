@@ -1,0 +1,13 @@
+# chat exports and anything derived from them stay local
+*.zip
+conversations*.json
+clean/
+localhost/
+merge/
+phiinverse/
+organism_out/
+blind_out*/
+*.sql
+links.json
+links.md
+map_top.txt
