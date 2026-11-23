@@ -3,7 +3,7 @@
 It lives next to its data. Nothing leaves your account; the container has no internet.
 
 ```
-cron (hourly) ─► Durable Object "organism" ─► container (standard-2: 1 vCPU, 6 GiB)
+cron (hourly) ─► Durable Object "organism" ─► container (standard-3: 2 vCPU, 8 GiB)
                    │ reads D1 in pages             │ learns, links parts, keeps no data after
                    │ seed from R2 ───────────────► │
                    ◄─ links ─────────────────────── │

@@ -18,7 +18,7 @@ const SEED_LATEST = "seed/latest.npz";
 const RUN_PARAMS = { gap: 6, parts: 20, top: 300, vocab: 4000, min_df: 3, max_df: 0.3, min_msgs: 6 };
 
 type Phase = "idle" | "ingest" | "seed" | "run" | "collect";
-interface Job { phase: Phase; source: number; cursor: number; started: string; maxRow: number; reason: string; error?: string }
+interface Job { phase: Phase; source: number; cursor: number; started: string; maxRow: number; reason: string; error?: string; runStarted?: number }
 
 const SOURCES: { threads?: string; events: string }[] = [
   { // chats, mail, WhatsApp, Telegram: one thread per conversation, account = source (+ AI account label)
@@ -51,7 +51,7 @@ export class Organism extends DurableObject<Env> {
   private async container(path: string, init?: RequestInit): Promise<Response> {
     const c = this.ctx.container!;
     if (!c.running) {
-      c.start({ image: c.images.base, instance: "standard-2", enableInternet: false });
+      c.start({ image: c.images.base, instance: "standard-3", enableInternet: false });
       await c.setInactivityTimeout(20 * 60 * 1000);
       for (let i = 0; i < 150; i++) {
         try {
@@ -83,7 +83,9 @@ export class Organism extends DurableObject<Env> {
       .first<{ run_id: string; created_at: string; params: string }>();
     const lastMax = last ? (JSON.parse(last.params || "{}").max_row ?? 0) : -1;
     const dayOld = !last || Date.now() - Date.parse(last.created_at) > 23 * 3600 * 1000;
-    const reason = req ? `requested ${req.value}` : (dayOld && maxRow !== lastMax ? "database grew" : "");
+    const err = await db.prepare("SELECT updated_at FROM organism_control WHERE key = 'last_error'").first<{ updated_at: string }>();
+    const failedToday = !!err && Date.now() - Date.parse(err.updated_at) < 23 * 3600 * 1000;   // don't retry a failure every hour
+    const reason = req ? `requested ${req.value}` : (dayOld && !failedToday && maxRow !== lastMax ? "database grew" : "");
     if (!reason) return "nothing to do";
     if (req) await db.prepare("DELETE FROM organism_control WHERE key = 'request'").run();
     await this.save({ phase: "ingest", source: 0, cursor: 0, started: now(), maxRow, reason });
@@ -126,13 +128,16 @@ export class Organism extends DurableObject<Env> {
     if (obj) await this.container("/seed", { method: "PUT", body: obj.body, headers: { "content-length": String(obj.size) } });
     const strikes = (await this.env.DB.prepare("SELECT term_a, term_b FROM organism_strikes").raw()) as [string, string][];
     await this.post("/run", { ...RUN_PARAMS, strikes });
-    j.phase = "run"; await this.save(j);
+    j.phase = "run"; j.runStarted = Date.now(); await this.save(j);
     await this.ctx.storage.setAlarm(Date.now() + 30_000);
   }
 
   private async poll(j: Job) {
-    const s = await (await this.container("/status")).json<{ state: string; error: string | null }>();
+    const s = await (await this.container("/status")).json<{ state: string; error: string | null; log: string[]; events: number }>();
+    console.log(`organism ${s.state}: ${s.log?.[s.log.length - 1] ?? ""}`);
     if (s.state === "error") throw new Error(`run failed: ${s.error}`);
+    if (s.state === "idle") throw new Error(`container restarted and lost the run (events held: ${s.events}); last log: ${s.log?.slice(-3).join(" | ")}`);
+    if (Date.now() - (j.runStarted ?? Date.now()) > 90 * 60 * 1000) throw new Error(`run took over 90 minutes; last log: ${s.log?.slice(-3).join(" | ")}`);
     if (s.state === "done") { j.phase = "collect"; await this.save(j); }
     await this.ctx.storage.setAlarm(Date.now() + (s.state === "done" ? 500 : 30_000));
   }
