@@ -12,6 +12,7 @@
 import { DurableObject } from "cloudflare:workers";
 
 const PORT = 8080;
+const INACTIVITY_MS = 30 * 60 * 1000;
 const PAGE = 2000;
 const PAGES_PER_ALARM = 15;
 const SEED_LATEST = "seed/latest.npz";
@@ -43,6 +44,31 @@ const SOURCES: { threads?: string; events: string }[] = [
 const now = () => new Date().toISOString();
 
 export class Organism extends DurableObject<Env> {
+  private monitoring: Promise<void> | undefined;
+
+  constructor(ctx: DurableObjectState, env: Env) {
+    super(ctx, env);
+    // A Durable Object can restart between alarms while its container keeps running. The inactivity timeout
+    // belongs to the object, not the container, so restore it, or the container is stopped as idle mid-run.
+    if (ctx.container?.running) {
+      void ctx.blockConcurrencyWhile(() => ctx.container!.setInactivityTimeout(INACTIVITY_MS));
+      this.observeExit();
+    }
+  }
+
+  private observeExit() {
+    if (this.monitoring) return;
+    this.monitoring = this.ctx.container!.monitor()
+      .then(() => this.note("container_exit", "exited normally"))
+      .catch((e: unknown) => this.note("container_exit", `failed: ${String(e)}`))
+      .finally(() => { this.monitoring = undefined; });
+  }
+
+  private async note(key: string, value: string) {
+    console.log(`${key}: ${value}`);
+    await this.env.DB.prepare("INSERT OR REPLACE INTO organism_control VALUES (?1, ?2, ?3)").bind(key, value, now()).run();
+  }
+
   private async job(): Promise<Job> {
     return (await this.ctx.storage.get<Job>("job")) ?? { phase: "idle", source: 0, cursor: 0, started: "", maxRow: 0, reason: "" };
   }
@@ -52,7 +78,8 @@ export class Organism extends DurableObject<Env> {
     const c = this.ctx.container!;
     if (!c.running) {
       c.start({ image: c.images.base, instance: "standard-3", enableInternet: false });
-      await c.setInactivityTimeout(20 * 60 * 1000);
+      this.observeExit();
+      await c.setInactivityTimeout(INACTIVITY_MS);
       for (let i = 0; i < 150; i++) {
         try {
           const r = await c.getTcpPort(PORT).fetch("http://container/health", { signal: AbortSignal.timeout(1000) });
@@ -62,6 +89,8 @@ export class Organism extends DurableObject<Env> {
         await scheduler.wait(400);
       }
     }
+    this.observeExit();
+    await c.setInactivityTimeout(INACTIVITY_MS);
     const r = await c.getTcpPort(PORT).fetch(`http://container${path}`, init);
     if (!r.ok && r.status !== 202) throw new Error(`container ${path}: ${r.status} ${await r.text()}`);
     return r;
