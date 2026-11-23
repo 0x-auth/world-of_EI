@@ -1,0 +1,10 @@
+# never commit data, runs or seeds
+organism_out/
+clean/
+*.db
+*.npz
+*.sql
+conversations.json
+*.zip
+__pycache__/
+*.egg-info/

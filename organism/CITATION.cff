@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "EI organism: a seed-carrying error-driven learner over threads in any database"
+version: 0.1.0
+date-released: 2026-11-22
+authors:
+  - name: "FILL IN YOUR NAME"
