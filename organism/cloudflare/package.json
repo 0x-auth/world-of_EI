@@ -1,0 +1,7 @@
+{
+  "name": "ei-organism-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": { "deploy": "wrangler deploy", "check": "tsc --noEmit", "types": "wrangler types" },
+  "devDependencies": { "typescript": "5.9.3", "wrangler": "4.136.1" }
+}

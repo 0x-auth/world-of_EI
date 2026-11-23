@@ -1,0 +1,9 @@
+# The organism as a service, for a Cloudflare container. Code only: data arrives over HTTP at run time.
+FROM public.ecr.aws/docker/library/python:3.12.7-slim
+WORKDIR /app
+COPY pyproject.toml README.md ./
+COPY organism ./organism
+RUN pip install --no-cache-dir numpy==2.1.3 && pip install --no-cache-dir --no-deps .
+ENV PORT=8080
+EXPOSE 8080
+CMD ["python", "-m", "organism.server"]

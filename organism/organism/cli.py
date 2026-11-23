@@ -10,6 +10,8 @@ def cmd_run(a):
     ev, meta = sources.merge(sources.open_source(s) for s in a.sources)
     excl = [x.strip() for x in a.exclude.split(",") if x.strip()]
     chats = core.threads_from_events(ev, meta, a.human_only, a.since, excl)
+    if a.gap:
+        chats = core.split_gaps(chats, a.gap)
     store = Store(a.store)
     struck = store.struck_pairs()
     focus = None
@@ -125,6 +127,7 @@ def main(argv=None):
     r.add_argument("--alpha", type=float, default=0.5)
     r.add_argument("--top", type=int, default=60)
     r.add_argument("--single", action="store_true")
+    r.add_argument("--gap", type=float, default=0, help="split threads into sessions at gaps over this many hours (e.g. 6 for WhatsApp); 0 = off")
     r.add_argument("--parts", type=int, default=20, help="link parts of N messages (default 20); 0 = whole threads, as v1.4")
     r.add_argument("--since", default=None)
     r.add_argument("--exclude", default="Cross-account chat synthesis")

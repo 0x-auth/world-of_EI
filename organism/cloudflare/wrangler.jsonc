@@ -1,0 +1,23 @@
+{
+  // The organism next to its data: a Worker with a Durable Object that drives a container.
+  // D1 (digital-history) feeds it; R2 keeps its seed between lives; links go back into D1.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ei-organism",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-10-08",
+  "observability": { "enabled": true },
+  "triggers": { "crons": ["17 * * * *"] },
+  "containers": [
+    {
+      "class_name": "Organism",
+      "scheduling_policy": "durable_object",
+      "images": { "base": { "dockerfile": "../Dockerfile.server" } }
+    }
+  ],
+  "durable_objects": { "bindings": [{ "name": "ORGANISM", "class_name": "Organism" }] },
+  "exports": { "Organism": { "type": "durable-object", "storage": "sqlite" } },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "digital-history", "database_id": "64b30a8d-8dcd-425c-a92c-b0e5f52d55ab" }
+  ],
+  "r2_buckets": [{ "binding": "SEEDS", "bucket_name": "ei-organism" }]
+}

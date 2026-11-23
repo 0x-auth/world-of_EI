@@ -1,5 +1,5 @@
 # Code only. Data is mounted at run time and never copied into the image.
-FROM python:3.12.7-slim
+FROM public.ecr.aws/docker/library/python:3.12.7-slim
 WORKDIR /app
 COPY pyproject.toml README.md ./
 COPY organism ./organism

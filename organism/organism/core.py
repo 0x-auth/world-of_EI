@@ -24,6 +24,38 @@ def tokens(text):
 
 
 # ---------------- threads from events ----------------
+def _ts(t):
+    import datetime
+    try:
+        d = datetime.datetime.fromisoformat(str(t).replace("Z", "+00:00").replace(" ", "T", 1))
+        return (d if d.tzinfo else d.replace(tzinfo=datetime.timezone.utc)).timestamp()
+    except ValueError:
+        return None
+
+
+def split_gaps(chats, hours):
+    """One long-running thread (a WhatsApp chat of years) becomes sessions: cut wherever the gap between
+    two messages is over `hours`. A thread that splits gets ids id#0, id#1 ... and its later sessions
+    carry their first date in the title. Threads that don't split are unchanged."""
+    out = []
+    for c in chats:
+        sessions, cur, last = [], [], None
+        for m in c["msgs"]:
+            ts = _ts(m[0])
+            if cur and last is not None and ts is not None and ts - last > hours * 3600:
+                sessions.append(cur); cur = []
+            cur.append(m)
+            if ts is not None: last = ts
+        if cur: sessions.append(cur)
+        if len(sessions) == 1:
+            out.append(c); continue
+        for k, ms in enumerate(sessions):
+            out.append({**c, "id": f"{c['id']}#{k}", "msgs": ms, "start": ms[0][0],
+                        "title": c["title"] if k == 0 else f"{c['title']} · {ms[0][0][:10]}"})
+    out.sort(key=lambda c: c["start"])
+    return out
+
+
 def threads_from_events(events, meta=None, human_only=False, since=None, exclude=()):
     """events: iterable of (thread_id, time, role, text). meta: {thread_id: {title, account, updated}}.
     Returns threads sorted by start, each {id, acct, title, start, updated, msgs:[(time, role, text)]}."""
@@ -169,47 +201,76 @@ def chat_links(chats, vocab, L, top=60, focus=None, min_msgs=6):
     return out
 
 
-def part_links(chats, vocab, L, size=20, top=60, focus=None, min_msgs=6):
+def part_links(chats, vocab, L, size=20, top=60, focus=None, min_msgs=6, block=1024):
     """Link parts of threads (size messages each) instead of whole threads, so a long thread links
-    through the part that carries the idea. Pairs inside one thread are skipped; each thread pair keeps
-    its strongest part pair. Score: map strength against both parts' usual links (lift)."""
+    through the part that carries the idea. Sessions of one thread never link to each other; each pair of
+    threads keeps its strongest part pair. Score: map strength against both parts' usual links (lift).
+    Works in row blocks, so memory grows with parts x vocabulary, not parts squared."""
     idx = {w: i for i, w in enumerate(vocab)}
     keep = [i for i, c in enumerate(chats) if len(c["msgs"]) >= min_msgs and (focus is None or i in focus)]
     parts = [(i, s, min(s + size, len(chats[i]["msgs"]))) for i in keep
              for s in range(0, len(chats[i]["msgs"]), size) if len(chats[i]["msgs"][s:s + size]) >= 4]
-    if len(parts) < 2:
+    n = len(parts)
+    if n < 2:
         return []
-    X = np.zeros((len(parts), len(vocab)), np.float32)
+    X = np.zeros((n, len(vocab)), np.float32)
     for k, (i, a, b) in enumerate(parts):
         for _, _, t in chats[i]["msgs"][a:b]:
             for w in tokens(t):
                 if w in idx: X[k, idx[w]] = 1
-    idf = np.log((1 + len(parts)) / (1 + X.sum(0))) + 1
-    Xw = X * idf
-    Xn = Xw / np.maximum(Xw.sum(1, keepdims=True), 1e-9)
-    owner = np.array([p[0] for p in parts]); same = owner[:, None] == owner[None, :]
-    M = Xn @ L @ Xn.T; M[same] = 0
-    row = M.sum(1) / max(int((~same).sum(1).max()), 1)
-    M = M / np.maximum(np.outer(row, row) / max(row.mean(), 1e-12), 1e-12); M[same] = 0
-    S = Xw / np.maximum(np.linalg.norm(Xw, axis=1, keepdims=True), 1e-9); S = S @ S.T
-    iu = np.triu_indices(len(parts), 1)
-    ok = ~same[iu]; ia, ib = iu[0][ok], iu[1][ok]
+    present = X.astype(bool)
+    idf = (np.log((1 + n) / (1 + X.sum(0))) + 1).astype(np.float32)
+    X *= idf                                                     # X is now the idf-weighted Xw
+    Xn = X / np.maximum(X.sum(1, keepdims=True), 1e-9)
+    Xs = X / np.maximum(np.linalg.norm(X, axis=1, keepdims=True), 1e-9)
+    del X
+    owner = np.array([p[0] for p in parts])
+    root = {}; rid = np.array([root.setdefault(chats[i]["id"].split("#")[0], len(root)) for i in owner])
+    Y = (L.astype(np.float32) @ Xn.T)                            # V x n
+    nother = np.bincount(rid, minlength=rid.max() + 1)
+    nother = (n - nother[rid]).astype(np.float64)
+    rowsum = np.zeros(n)
+    def rows(lo, hi):
+        Mb = Xn[lo:hi] @ Y
+        Mb[rid[lo:hi, None] == rid[None, :]] = 0                 # same thread: no link
+        return Mb
+    for lo in range(0, n, block):                                # pass 1: each part's usual link strength
+        rowsum[lo:hi] = rows(lo, hi := min(lo + block, n)).sum(1)
+    row = rowsum / max(nother.max(), 1)
+    mean = max(row.mean(), 1e-12)
+    want = max(top * 400, 20000)
+    cand_v, cand_i, cand_j = [], [], []
+    for lo in range(0, n, block):                                # pass 2: lift, upper triangle, keep the best
+        hi = min(lo + block, n)
+        Mb = rows(lo, hi) / np.maximum(np.outer(row[lo:hi], row) / mean, 1e-12)
+        Mb[np.arange(hi - lo)[:, None] + lo >= np.arange(n)[None, :]] = 0
+        flat = Mb.ravel(); k = min(flat.size - 1, want)
+        sel = np.argpartition(-flat, k)[:k]; sel = sel[flat[sel] > 0]
+        r, c = np.unravel_index(sel, Mb.shape)
+        cand_v.append(flat[sel]); cand_i.append(r + lo); cand_j.append(c)
+        v = np.concatenate(cand_v); ii = np.concatenate(cand_i); jj = np.concatenate(cand_j)
+        if len(v) > want:
+            o = np.argpartition(-v, want)[:want]; v, ii, jj = v[o], ii[o], jj[o]
+        cand_v, cand_i, cand_j = [v], [ii], [jj]
+    v, ia, ib = cand_v[0], cand_i[0], cand_j[0]
+    o = np.lexsort((ib, ia, -v)); v, ia, ib = v[o], ia[o], ib[o]
     best = {}
-    for o in np.argsort(-M[ia, ib], kind="stable"):
-        a, b = ia[o], ib[o]
-        key = (min(owner[a], owner[b]), max(owner[a], owner[b]))
+    for x in range(len(v)):
+        a, b = ia[x], ib[x]
+        key = (min(rid[a], rid[b]), max(rid[a], rid[b]))         # one link per pair of original threads
         if key not in best:
-            best[key] = (a, b)
+            best[key] = (a, b, float(v[x]))
             if len(best) >= top: break
     out = []
-    for (ca, cb), (a, b) in best.items():
-        if owner[a] != ca: a, b = b, a
-        ta, tb = np.flatnonzero(X[a]), np.flatnonzero(X[b]); sub = L[np.ix_(ta, tb)]
+    for a, b, m in best.values():
+        ca, cb = owner[a], owner[b]
+        ta, tb = np.flatnonzero(present[a]), np.flatnonzero(present[b]); sub = L[np.ix_(ta, tb)]
         carry = [(vocab[ta[i]], vocab[tb[j]], float(sub[i, j]))
                  for i, j in zip(*np.unravel_index(np.argsort(-sub, axis=None)[:5], sub.shape)) if sub[i, j] > 0]
         A, B = chats[ca], chats[cb]
+        w = float(Xs[a] @ Xs[b])
         out.append({"a": A["id"], "a_title": A["title"], "a_acct": A["acct"], "a_msgs": [int(parts[a][1]) + 1, int(parts[a][2])],
                     "b": B["id"], "b_title": B["title"], "b_acct": B["acct"], "b_msgs": [int(parts[b][1]) + 1, int(parts[b][2])],
-                    "map": float(M[a, b]), "words": float(S[a, b]), "hidden": float(M[a, b] * (1 - S[a, b])),
+                    "map": m, "words": w, "hidden": m * (1 - w),
                     "cross_account": A["acct"] != B["acct"], "carried_by": carry})
     return out

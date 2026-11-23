@@ -9,7 +9,7 @@ SCHEMA = [
     """CREATE TABLE IF NOT EXISTS organism_links (
         run_id TEXT, rank INTEGER, thread_a TEXT, thread_b TEXT, acct_a TEXT, acct_b TEXT,
         title_a TEXT, title_b TEXT, map REAL, words REAL, hidden REAL, carried_by TEXT,
-        status TEXT DEFAULT 'unstruck', PRIMARY KEY (run_id, rank))""",
+        status TEXT DEFAULT 'unstruck', msgs_a TEXT, msgs_b TEXT, PRIMARY KEY (run_id, rank))""",
     """CREATE TABLE IF NOT EXISTS organism_strikes (
         term_a TEXT, term_b TEXT, run_id TEXT, rank INTEGER, reason TEXT, created_at TEXT,
         PRIMARY KEY (term_a, term_b))""",
@@ -67,9 +67,10 @@ class Store:
     def save_links(self, run_id, links):
         for r, l in enumerate(links, 1):
             self.q("INSERT INTO organism_links (run_id, rank, thread_a, thread_b, acct_a, acct_b, title_a, title_b,"
-                   " map, words, hidden, carried_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                   " map, words, hidden, carried_by, msgs_a, msgs_b) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                    (run_id, r, l["a"], l["b"], l["a_acct"], l["b_acct"], l["a_title"], l["b_title"],
-                    l["map"], l["words"], l["hidden"], json.dumps(l["carried_by"], ensure_ascii=False)))
+                    l["map"], l["words"], l["hidden"], json.dumps(l["carried_by"], ensure_ascii=False),
+                    json.dumps(l.get("a_msgs")), json.dumps(l.get("b_msgs"))))
 
     # ---- the filter: strikes ----
     def strike(self, run_id, rank, reason=""):

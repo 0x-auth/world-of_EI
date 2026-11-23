@@ -57,6 +57,11 @@ CREATE VIEW threads AS SELECT id AS thread_id, name AS title, owner AS account, 
 The organism's own memory (`organism_runs`, `organism_links`, `organism_strikes`) goes to `--store`:
 a SQLite path (default `organism_out/organism.db`), `d1:<uuid>` or `postgres:DSN`.
 
+## On Cloudflare
+
+`cloudflare/` runs it next to the data: a Worker and Durable Object feed a container from D1, keep the seed in R2,
+and write links back to D1. See `cloudflare/README.md`. `organism/server.py` is the container's HTTP face.
+
 ## Docker
 
 The image holds code only. Data is mounted read-only at run time and never baked in.

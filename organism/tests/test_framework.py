@@ -67,3 +67,26 @@ def test_parts_point_into_threads(data):
     run("run", *folders(data), *ARGS, "--parts", "4", "--out", str(data / "pt"), "--store", str(data / "pt.db"), "--seed", "none")
     links = json.load(open(data / "pt" / "links.json"))
     assert links and all(l["a"] != l["b"] and l["a_msgs"][0] >= 1 and l["a_msgs"][1] >= l["a_msgs"][0] for l in links)
+
+
+def test_gap_split_sessions():
+    from organism import core
+    c = [{"id": "w", "acct": "wa", "title": "WA", "start": "2020-01-01T10:00:00Z", "updated": "",
+          "msgs": [("2020-01-01T10:00:00Z", "u", "a"), ("2020-01-01T11:00:00Z", "u", "b"),
+                   ("2020-01-03T09:00:00Z", "u", "c"), ("2020-01-03T09:05:00", "u", "d")]},
+         {"id": "x", "acct": "a", "title": "X", "start": "2020-01-02", "updated": "", "msgs": [("2020-01-02", "u", "z")]}]
+    s = core.split_gaps(c, 6)
+    assert [t["id"] for t in s] == ["w#0", "x", "w#1"] and [len(t["msgs"]) for t in s] == [2, 1, 2]
+    assert s[2]["title"] == "WA · 2020-01-03"
+
+
+def test_sessions_of_one_thread_do_not_link():
+    import numpy as np
+    from organism import core
+    w = "alpha beta gamma delta epsilon zeta eta theta".split()
+    mk = lambda d, k: [(f"2020-01-{d:02d}T{h:02d}:00:00Z", "u", " ".join(w[(h + k) % 8:(h + k) % 8 + 3])) for h in range(8)]
+    chats = core.split_gaps([{"id": "w", "acct": "a", "title": "W", "start": "", "updated": "", "msgs": mk(1, 0) + mk(5, 1)},
+                             {"id": "x", "acct": "b", "title": "X", "start": "", "updated": "", "msgs": mk(3, 2)}], 6)
+    vocab = sorted(set(w)); L = np.ones((8, 8), np.float32); np.fill_diagonal(L, 0)
+    links = core.part_links(chats, vocab, L, size=4, top=10)
+    assert links and all({l["a"].split("#")[0], l["b"].split("#")[0]} == {"w", "x"} for l in links)
